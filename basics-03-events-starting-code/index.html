@@ -21,13 +21,32 @@
       <button v-on:click="add(5)">Add 5</button>
       <button v-on:click="reduce(5)">Reduce 5</button>
       <!--reduce(), reduce : both are accepted-->
+      <!--
+        오른쪽 클릭했을 때 Reduce 5 버튼이 동작하길 원한다면
+        v-on:click.right 만 설정해주면 됨.
+      -->
+
+      <p v-once>Starting Counter : {{ counter }}</p>
+      <!--
+        v-once 
+        - 초기설정값을 그대로 유지하고 싶을 때 사용
+        - add, reduce 버튼 클릭해도 초기값 유지
+        - 많이 쓰이지는 않음
+       -->
       <p>Result: {{ counter }}</p>
-      <input type="text" v-on:input="setName($event, 'Schwarzmuller')"/>
+      <input type="text" v-on:input="setName($event, 'Schwarzmuller')" v-on:keyup.enter="confirmInput"/>
       <!--
         input Event
         - default Dom event available on input element
         - nothing Vue specific
         - you can listen to input event in vanilla Javascript as well
+
+      -->
+      <!--
+        엔터를 쳤을때 이름이 입력되기를 원한다면
+        v-on:keyup.enter
+        v-on:keyup.ctrl
+        v-on:keyup.page-down
       -->
       <!--
         $event
@@ -43,6 +62,22 @@
         
       -->
       <p>Your Name:{{ name }}</p>
+      <p>Your Name:{{ confirmedName }}</p>
+      <form v-on:submit.prevent="submitForm">
+        <!--
+          버튼 눌렀을때 페이지 리로딩되는거 막는 법
+          to prevent Event default 
+          - event.preventDefault(); in JS
+          - v-on:submit.prevent in Vue
+          * v-on:submit.stop : for stopping propagation
+        -->
+        <input type="text"/>
+        <button>Sign Up</button>
+        <!--
+          button 을 클릭하면 브라우저가 reload 됨
+          - the reason for that is that the browser default for a form with a button like this is to submit that form and send an HTTP request to the server serving this app
+        -->
+      </form>
     </section>
   </body>
 </html>
