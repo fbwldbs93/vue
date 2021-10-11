@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Course Goals</h1>
+    </header>
+    <section id="user-goal">
+      <h2>My Course Goal</h2>
+
+      <!--Data-->
+      <p>{{ courseGoal }}</p>
+      <!--
+        you can reference properties 
+        that are part of that object
+        you return in data (in js file)
+
+        ------
+        {{}} 는 HTML tag 사이에서만 사용 가능
+      -->
+
+      <!--Methods-->
+      <p>{{ outputGoal() }}</p>
+
+      <!--v-html-->
+      <!--<p v-html="outputGoal()"></p>-->
+      <!--
+        we don't use v-html often and
+        you should definitely not use it as a default
+        <h2>text</h2>와 같이 태그와 함께 입력받아야하는 경우가 
+        아니라면 사용하지 않음!
+      -->
+      <!--
+        v-html
+        you tell Vue that the content inside of the HTML tag
+        should be interpreted as HTML
+      -->
+
+      <p>Learn more <a v-bind:href="vueLink">about Vue</a>.</p>
+      <!--
+        v-bind tells Vue to bind, so to set, 
+        the value of something
+        ("something is an attribute on an HTML element")
+        and to let Vue know which attribute's value to set
+        v-bind 는 속성의 값을 설정해주는 역할, 그리고 Vue에게 어떤 속성의 값을 설정해야하는 지 알려줌
+      -->
+    </section>
+  </body>
+</html>
