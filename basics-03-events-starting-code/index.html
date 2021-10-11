@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Events</h1>
+    </header>
+    <section id="events">
+      <h2>Events in Action</h2>
+      <button v-on:click="add(5)">Add 5</button>
+      <button v-on:click="reduce(5)">Reduce 5</button>
+      <!--reduce(), reduce : both are accepted-->
+      <p>Result: {{ counter }}</p>
+      <input type="text" v-on:input="setName($event, 'Schwarzmuller')"/>
+      <!--
+        input Event
+        - default Dom event available on input element
+        - nothing Vue specific
+        - you can listen to input event in vanilla Javascript as well
+      -->
+      <!--
+        $event
+        - default event object(기본 이벤트 객체) 이외의 또 다른 인자를 사용해야할 때
+        - this is reserved name and Vue gives this variable to you
+        to give you access to this built in default event object which
+        you get automatically by the browser
+        - 다른 인자를 사용함으로써, 기본 이벤트 객체를 지정할 수 없을 때
+        $event 사용. 
+        - JS 단에서는 setName(lastName) 또는 setName(event, lastName)
+        등 첫번째 인자로서 인식시킬 수 있지만.
+        - HTML단에서는 기본 이벤트 객체를 인식시키려면 $event 를 사용해야함.
+        
+      -->
+      <p>Your Name:{{ name }}</p>
+    </section>
+  </body>
+</html>
