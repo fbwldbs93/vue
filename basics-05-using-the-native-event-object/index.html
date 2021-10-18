@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Events</h1>
+    </header>
+    <section id="events">
+      <h2>Events in Action</h2>
+      <button v-on:click="add(10)">Add 10</button>
+      <button v-on:click="reduce(5)">Subtract 5</button>
+      <p>Result: {{ counter }}</p>
+      <!--
+      <input
+        type="text"
+        v-bind:value="name"
+        v-on:input="setName($event, 'Schwarzmüller')"
+      />
+      -->
+      <!--
+        v-bind:value="name"
+        - data 에 저장한 name:'' 에 접근
+      -->
+      <input type="text" v-model="name" />
+      <!--
+        유저가 입력한 값을 얻음과 동시에 값을 입력하고 싶다.
+        인풋 값을 얻는 것 뿐만 아니라 저장된 값을 인풋으로 보내고 싶다면
+        Vue 에게는 이것을 위한 shortcut 이 있습니다.
+        "바로 v-model"
+        - data property it should manage for you
+
+        즉, v-model을 사용함으로써, 
+        "name" 속성은 값을 얻거나 입력하는 것을 관리받게 된다.
+
+        name property now is managed by Vue
+        such that it's updated on the input event
+        and the name properties value is then sent back
+        into the input element.
+
+        v-model (two-way binding)
+        : simply just a shortcut for 
+        "v-bind value" and "v-on input"
+        (v-bind, v-on 의 숏컷)
+        : it makes getting user input and updating it much easier as you can tell
+      -->
+
+      <button v-on:click="resetInput">Reset Input</button>
+      <!--<p>Your Name: {{ name }}</p>-->
+      <!--<p>Your Name: {{ outputFullname() }}</p>-->
+      <p>Your Name: {{ fullname }}</p>
+      <!--
+        *** fullname() 이렇게 선언하지 않음!!
+        - data 속성에서 사용하듯이 이름 지을 것임.
+      -->
+    </section>
+  </body>
+</html>

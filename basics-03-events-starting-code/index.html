@@ -34,9 +34,13 @@
         - 많이 쓰이지는 않음
        -->
       <p>Result: {{ counter }}</p>
-      <input type="text" v-on:input="setName($event, 'Schwarzmuller')" v-on:keyup.enter="confirmInput"/>
+      <input
+        type="text"
+        v-on:input="setName($event, 'Schwarzmuller')"
+        v-on:keyup.enter="confirmInput"
+      />
       <!--
-        input Event
+        input Event(v-on:input)
         - default Dom event available on input element
         - nothing Vue specific
         - you can listen to input event in vanilla Javascript as well
@@ -71,7 +75,7 @@
           - v-on:submit.prevent in Vue
           * v-on:submit.stop : for stopping propagation
         -->
-        <input type="text"/>
+        <input type="text" />
         <button>Sign Up</button>
         <!--
           button 을 클릭하면 브라우저가 reload 됨
