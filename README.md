@@ -1,2 +1,2 @@
 # vue
-learn vue with udemy
+Learn vue making project
